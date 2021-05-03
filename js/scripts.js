@@ -18,12 +18,12 @@ let repository = [
   }
 ];
 
-for (let i=0; i < repository.lenght; i++){
+for (let i=0; i < repository.length; i++){
   if (repository[i].height <1 && repository[i].height> 0.8){
-    console.log(repository[i].name + "is a big pokemon");
+    document.write(repository[i].name + "is a big pokemon <br>");
   }else if (repository[i].height < 0.8){
-    console.log(repository[i].name + "is a small pokemon");
+    document.write(repository[i].name + "is a small pokemon <br>");
   }else {
-    console.log(repository[i].name + "is a avarage pokemon");
+    document.write(repository[i].name + "is a avarage pokemon <br>");
   }
 }
