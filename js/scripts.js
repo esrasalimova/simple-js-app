@@ -29,12 +29,6 @@ let pokemonRepository = (function () [
 //  }
 //}
 
-pokemonList.forEach(function(pokemon) => {
-  console.log(pokemon.name + 'has' + pokemon.types + 'power');
-
-});
-
-
 function getAll() {
   return pokemonList;
 }
@@ -49,4 +43,7 @@ return {
 };
 })();
 
-console.log(pokemonRepository.getAll() );
+pokemonRepository.getAll().forEach(function(pokemon) => {
+  console.log(pokemon.name + 'has' + pokemon.types + 'power');
+
+});
