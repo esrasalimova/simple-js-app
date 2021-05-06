@@ -1,5 +1,5 @@
 //array to hold pokemon list
-let pokemonRepository = (function () [
+let pokemonRepository = (function () {
   let pokemonList = [
   {
   name: "Pikachu",
@@ -19,16 +19,6 @@ let pokemonRepository = (function () [
   }
 ];
 
-//for (let i=0; i < repository.length; i++){
-//  if (repository[i].height <1 && repository[i].height> 0.8){
-//    document.write(repository[i].name + "is a big pokemon <br>");
-//  }else if (repository[i].height < 0.8){
-//    document.write(repository[i].name + "is a small pokemon <br>");
-//  }else {
-//    document.write(repository[i].name + "is a avarage pokemon <br>");
-//  }
-//}
-
 function getAll() {
   return pokemonList;
 }
@@ -43,7 +33,12 @@ return {
 };
 })();
 
-pokemonRepository.getAll().forEach(function(pokemon) => {
-  console.log(pokemon.name + 'has' + pokemon.types + 'power');
-
+pokemonRepository.getAll().forEach(function (pokemon) {
+if (pokemon.height < 1 && pokemon.height > 0.8) {
+document.write(pokemon.name + "is a big pokemon <br>");
+} else if (pokemon.height < 0.8) {
+document.write(pokemon.name + "is a small pokemon <br>");
+} else {
+document.write(pokemon.name + "is a avarage pokemon <br>");
+}
 });
