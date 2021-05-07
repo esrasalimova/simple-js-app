@@ -35,10 +35,10 @@ return {
 
 pokemonRepository.getAll().forEach(function (pokemon) {
 if (pokemon.height < 1 && pokemon.height > 0.8) {
-document.write(pokemon.name + "is a big pokemon <br>");
+document.write(pokemon.name + " " + "is a big pokemon <br>");
 } else if (pokemon.height < 0.8) {
-document.write(pokemon.name + "is a small pokemon <br>");
+document.write(pokemon.name + " " + "is a small pokemon <br>");
 } else {
-document.write(pokemon.name + "is a avarage pokemon <br>");
+document.write(pokemon.name + " " + "is a avarage pokemon <br>");
 }
 });
