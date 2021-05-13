@@ -59,9 +59,31 @@ let pokemonRepository = (function () {
     });
   }
 
-  function showDetails(item) {
-    pokemonRepository.loadDetails(item).then(function () {
-      console.log(item);
+  function showDetails(pokemon) {
+    pokemonRepository.loadDetails(pokemon).then(function() {
+      let modalBody = $('.modal-body');
+      let modalTitle = $('.modal-title');
+
+      modalTitle.empty();
+      modalBody.empty();
+
+      let pokemonName = $('<h1>' + pokemon.name + '</h1>');
+      let pokemonImage = $('<img class="modal-img" style="width:50%">');
+      pokemonImage.attr('src', pokemon.imageUrl);
+      let pokemonHeight = $('<p>' + 'Height: ' + pokemon.height + '</p>');
+      let pokemonTypes = document.createElement('span');
+      let types = 'Types: ';
+      pokemon.types.forEach(function(item) {
+        types += item.type.name + ' ';
+      });
+      pokemonTypes.innerHTML = types;
+
+      modalTitle.append(pokemonName);
+      modalBody.append(pokemonImage);
+      modalBody.append(pokemonHeight);
+      modalBody.append(pokemonTypes);
+
+      $('#pokemonModal').modal('toggle');
     });
   }
 
