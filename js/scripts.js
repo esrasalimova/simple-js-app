@@ -64,12 +64,11 @@ let pokemonRepository = (function () {
       let modalBody = document.querySelector('.modal-body');
       let modalTitle = document.querySelector('.modal-title');
 
-      modalTitle.empty();
-      modalBody.empty();
+      modalTitle.innerHTML=''
+      modalBody.innerHTML=''
 
       let pokemonName = ('<h1>' + pokemon.name + '</h1>');
-      let pokemonImage = ('<img class="modal-img" style="width:50%">');
-      pokemonImage.attr('src', pokemon.imageUrl);
+      let pokemonImage = (`<img class="modal-img" style="width:50%" src=${pokemon.imageUrl}`);
       let pokemonHeight = ('<p>' + 'Height: ' + pokemon.height + '</p>');
       let pokemonTypes = document.createElement('span');
       let types = 'Types: ';
