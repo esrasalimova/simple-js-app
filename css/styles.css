@@ -19,3 +19,23 @@ body {
   color: black;
   border: 2px solid #4caf50;
 }
+#modal-container {
+  display: none;
+}
+#modal-container.is-visible {
+  /* CSS for modal container - add your own desired CSS styles here */
+  display: block;
+  background-color: azure;
+  padding: 20px;
+  display: inline-block;
+  text-align: center;
+  margin: auto 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+  z-index: 999;
+  width: 200px;
+  height: 401px;
+}
