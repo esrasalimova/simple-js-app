@@ -20,14 +20,16 @@ let pokemonRepository = (function () {
     let pokemonList = document.querySelector(".pokemon-list");
     let listpokemon = document.createElement("li");
     let button = document.createElement("button");
+    button.setAttribute("data-toggle", "modal");
     button.innerText = pokemon.name;
     button.classList.add("button-class");
     listpokemon.appendChild(button);
     pokemonList.appendChild(listpokemon);
-    button.addEventListener("click", function(event) {
-      showDetails(pokemon);
+    button.addEventListener("click", function (event) {
+      loadDetails(pokemon).then(function (){
+        showModal(pokemon);
+      })
     });
-  }
 
   function loadList() {
     return fetch(apiUrl).then(function (response) {
@@ -77,13 +79,13 @@ function showModal(item) {
   let imageElementBack = $('<img class="modal-img"style="width:50%">');
   imageElementBack.attr("src", item.imageUrlBack);
 
-  let heightElement = $("<p>" + "height : " + item.height + "</p>");
+  let heightElement = "<p>" + "height : " + item.height + "</p>";
 
-  let weightElement = $("<p>" + "weight : " + item.weight + "</p>");
+  let weightElement = "<p>" + "weight : " + item.weight + "</p>";
 
-  let typesElement = $("<p>" + "types : " + item.types + "</p>");
+  let typesElement = "<p>" + "types : " + item.types + "</p>";
 
-  let abilitiesElement = $.("<p>" + "abilities : " + item.abilities + "</p>");
+  let abilitiesElement = "<p>" + "abilities : " + item.abilities + "</p>";
 
   modalTitle.append(nameElement);
   modalBody.append(imageElementFront);
@@ -93,9 +95,8 @@ function showModal(item) {
   modalBody.append(typesElement);
   modalBody.append(abilitiesElement);
 
-  $('[data-toggle="modal"]').on('click', function(){
-    let targetSelector = $(this).attr('data-target');
-    $(targetSelector).modal('show'); // Bootstrap’s own function to make the modal appear
+
+    $("#exampleModal").modal('show');
   });
 }
 
