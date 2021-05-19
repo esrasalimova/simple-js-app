@@ -59,46 +59,45 @@ let pokemonRepository = (function () {
     });
   }
 
-  function showDetails(pokemon) {
-    pokemonRepository.loadDetails(pokemon).then(function() {
-      let modalContainer = document.querySelector('#modal-container');
 
-      // Clear all existing modal content
-      modalContainer.innerHTML = '';
+  $('[data-toggle="modal"]').on('click', function(){
+    let targetSelector = $(this).attr('data-target');
+    $(targetSelector).modal('show'); // Bootstrap’s own function to make the modal appear
+  });
 
-      let modal = document.createElement('div');
-      modal.classList.add('modal');
+  // show the modal content
+function showModal(item) {
+  let modalBody = $(".modal-body");
+  let modalTitle = $(".modal-title");
+  let modalHeader = $(".modal-header");
 
-      // Add the new modal content
-      let closeButtonElement = document.createElement('button');
-      closeButtonElement.classList.add('modal-close');
-      closeButtonElement.innerText = 'Close';
+  modalTitle.empty();
+  modalBody.empty();
 
-      closeButtonElement.addEventListener('click', function(e) {
-        modalContainer.classList.remove('is-visible');
-      });
+  //creating element for name in modal content
+  let nameElement = $("<h1>" + item.name + "</h1>");
 
-      let titleElement = document.createElement('h1');
-      titleElement.innerText = pokemon.name;
+  let imageElementFront = $('<img class="modal-img"style="width:50%">');
+  imageElementFront.attr("src", item.imageUrlFront);
+  let imageElementBack = $('<img class="modal-img"style="width:50%">');
+  imageElementBack.attr("src", item.imageUrlBack);
 
-      const imgElement = document.createElement('img'); //<img></img>
-      imgElement.setAttribute("src", pokemon.imageUrl) //<img src=imageURL></img>
+  let heightElement = $("<p>" + "height : " + item.height + "</p>");
 
-      let heightElement = document.createElement('p');
-      heightElement.innerText = `Height: ${pokemon.height}`;
-      let weightElement = document.createElement('p');
-      weightElement.innerText = `Weight: ${pokemon.height}`;
+  let weightElement = $("<p>" + "weight : " + item.weight + "</p>");
 
-      modal.appendChild(closeButtonElement);
-      modal.appendChild(titleElement);
-      modal.appendChild(imgElement);
-      modal.appendChild(heightElement);
-      modal.appendChild(weightElement);
-      modalContainer.appendChild(modal);
+  let typesElement = $("<p>" + "types : " + item.types + "</p>");
 
-      modalContainer.classList.add('is-visible');
-    });
-  }
+  let abilitiesElement = $.("<p>" + "abilities : " + item.abilities + "</p>");
+
+  modalTitle.append(nameElement);
+  modalBody.append(imageElementFront);
+  modalBody.append(imageElementBack);
+  modalBody.append(heightElement);
+  modalBody.append(weightElement);
+  modalBody.append(typesElement);
+  modalBody.append(abilitiesElement);
+}
 
   return {
     add: add,
