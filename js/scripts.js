@@ -60,11 +60,6 @@ let pokemonRepository = (function () {
   }
 
 
-  $('[data-toggle="modal"]').on('click', function(){
-    let targetSelector = $(this).attr('data-target');
-    $(targetSelector).modal('show'); // Bootstrap’s own function to make the modal appear
-  });
-
   // show the modal content
 function showModal(item) {
   let modalBody = $(".modal-body");
@@ -97,6 +92,11 @@ function showModal(item) {
   modalBody.append(weightElement);
   modalBody.append(typesElement);
   modalBody.append(abilitiesElement);
+
+  $('[data-toggle="modal"]').on('click', function(){
+    let targetSelector = $(this).attr('data-target');
+    $(targetSelector).modal('show'); // Bootstrap’s own function to make the modal appear
+  });
 }
 
   return {
