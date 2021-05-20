@@ -30,7 +30,7 @@ let pokemonRepository = (function () {
         showModal(pokemon);
       })
     });
-
+}
   function loadList() {
     return fetch(apiUrl).then(function (response) {
       return response.json();
@@ -97,7 +97,7 @@ function showModal(item) {
 
 
     $("#exampleModal").modal('show');
-  });
+
 }
 
   return {
@@ -106,13 +106,12 @@ function showModal(item) {
     addListItem: addListItem,
     loadList: loadList,
     loadDetails: loadDetails,
-    showDetails: showDetails
   };
-})();
+}()
 
 
-pokemonRepository.loadList().then(function () {
-  pokemonRepository.getAll().forEach(function (pokemon) {
+pokemonRepository.loadList().then(function() {
+  pokemonRepository.getAll().forEach(function(pokemon) {
     pokemonRepository.addListItem(pokemon);
   });
 });
