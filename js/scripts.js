@@ -107,9 +107,10 @@ function showModal(item) {
     loadList: loadList,
     loadDetails: loadDetails,
   };
-}()
+})()
 
 
+console.log(pokemonRepository)
 pokemonRepository.loadList().then(function() {
   pokemonRepository.getAll().forEach(function(pokemon) {
     pokemonRepository.addListItem(pokemon);
