@@ -50,18 +50,3 @@ button.btn.btn-block {
   font-weight: bold;
   padding: 2px 4px;
 }
-
-.image{
-  height:600px;
-  width: 600px;
-  vertical-align: middle;
-}
-
-.footer{
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 24px;
-  position: fixed;
-  text-align: center;
-  bottom: 100px;
-  width: 50%
-}
