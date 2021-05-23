@@ -56,7 +56,6 @@ button.btn.btn-block {
     padding: 5px;
 }
 
-button.classList.add("button-class", "pkitem");
 .pkitem {
   width: 220px;
 }
