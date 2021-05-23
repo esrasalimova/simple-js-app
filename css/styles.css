@@ -50,3 +50,13 @@ button.btn.btn-block {
   font-weight: bold;
   padding: 2px 4px;
 }
+
+.pokemon-list li {
+    margin: 0;
+    padding: 5px;
+}
+
+button.classList.add("button-class", "pkitem");
+.pkitem {
+  width: 220px;
+}
